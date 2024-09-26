@@ -36,6 +36,12 @@ jobs:
         key: ${{ runner.os }}-buildx-${{ github.sha }}
         restore-keys: |
           ${{ runner.os }}-buildx-
+    
+    - name: Set up Docker Compose
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y docker-compose
+
 
     # Step 4: Build and test the Docker Compose setup
     - name: Build and Test Docker Compose
